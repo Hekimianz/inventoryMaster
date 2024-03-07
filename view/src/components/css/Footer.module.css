@@ -1,0 +1,11 @@
+.footerCont {
+  width: 100%;
+  background-color: #ecd4b3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footerA {
+  color: black;
+}

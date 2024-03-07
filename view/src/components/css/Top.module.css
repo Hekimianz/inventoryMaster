@@ -1,0 +1,28 @@
+.topCont {
+  height: 100px;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  border-bottom: 1px solid black;
+  padding: 10px 0;
+  color: #111729;
+}
+
+.logo {
+  width: 25%;
+  max-width: 100px;
+  margin-top: 5px;
+}
+
+.title {
+  font-size: 1.5em;
+}
+
+@media (min-width: 1028px) {
+  .title {
+    font-size: 2em;
+  }
+}
