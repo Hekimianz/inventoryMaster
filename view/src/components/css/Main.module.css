@@ -1,3 +1,24 @@
 .mainCont {
   height: 100%;
 }
+
+.searchCont {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.searchBar {
+  margin-right: 20px;
+  border-radius: 4px;
+  border: 1px solid black;
+  padding-left: 4px;
+}
+
+.searchBtn {
+  background-color: #ecd4b3;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
