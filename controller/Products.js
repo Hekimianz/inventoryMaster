@@ -16,8 +16,8 @@ module.exports = {
     try {
       const name = req.params.name;
       const query = await pool.query(
-        "SELECT * FROM products WHERE productname = $1",
-        [name]
+        "SELECT * FROM products WHERE LOWER(productname) LIKE LOWER($1)",
+        [`%${name}%`]
       );
       res.send(query.rows);
     } catch (err) {
