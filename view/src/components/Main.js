@@ -5,7 +5,7 @@ function Main() {
   const [inventory, setInventory] = useState([]);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch("http://localhost:4000/");
+      const response = await fetch("https://inventorymaster-api.onrender.com/");
       const data = await response.json();
       console.log(data);
       setInventory(data);
