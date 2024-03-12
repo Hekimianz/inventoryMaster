@@ -1,0 +1,14 @@
+.productCont {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px dashed black;
+}
+
+.productId,
+.productName,
+.productQuantity {
+  width: 30%;
+  text-align: center;
+}
