@@ -53,7 +53,7 @@ function Main() {
         </span>
       </div>
       <div className={styles.productsCont}>
-        <Product id="Id" name="Name" quant="Quantity" />
+        <Product isLegend={true} id="Id" name="Name" quant="Quantity" />
         {products}
       </div>
     </div>

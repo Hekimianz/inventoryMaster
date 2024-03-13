@@ -4,7 +4,11 @@ function Product(props) {
     <div className={styles.productCont}>
       <p className={styles.productId}>{props.id}</p>
       <p className={styles.productName}>{props.name}</p>
-      <p className={styles.productQuantity}>{props.quant}</p>
+      <div className={styles.quantityCont}>
+        {props.isLegend ? null : <span className={styles.decrement}>-</span>}
+        <p className={styles.productQuantity}>{props.quant}</p>
+        {props.isLegend ? null : <span className={styles.increment}>+</span>}
+      </div>
     </div>
   );
 }

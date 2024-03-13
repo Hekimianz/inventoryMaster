@@ -25,4 +25,17 @@ module.exports = {
       res.satus(500).send("Error fetching products");
     }
   },
+  addByOne: async (req, res) => {
+    try {
+      const id = req.params.id;
+      const query = await pool.query(
+        "UPDATE products SET quantityavailable = quantityavailable + 1 WHERE productid = $1",
+        [id]
+      );
+      res.send("Quantity updated");
+    } catch (err) {
+      console.error("Error adding to product: ", err);
+      res.status(500).send("Error adding to product");
+    }
+  },
 };
