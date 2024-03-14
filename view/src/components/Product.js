@@ -1,8 +1,11 @@
 import styles from "./css/Product.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Product(props) {
   const [quantity, setQuantity] = useState(props.quant);
+  useEffect(() => {
+    setQuantity(props.quant);
+  }, [props.quant]);
 
   return (
     <div className={styles.productCont}>

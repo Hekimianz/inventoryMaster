@@ -8,15 +8,6 @@ function Main() {
   const [showEdit, setShowEdit] = useState(false);
   const [editInfo, setEditInfo] = useState({});
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch("https://inventorymaster-api.onrender.com/");
-      const data = await response.json();
-      setInventory(data);
-    };
-    fetchData();
-  }, []);
-
   const searchByName = async (name) => {
     const response = await fetch(
       `https://inventorymaster-api.onrender.com/${name}`
@@ -25,7 +16,7 @@ function Main() {
     setInventory(data);
   };
 
-  const products = inventory.map((product) => {
+  let products = inventory.map((product) => {
     return (
       <Product
         id={product.productid}
@@ -37,6 +28,18 @@ function Main() {
       />
     );
   });
+  const fetchData = async () => {
+    const response = await fetch("https://inventorymaster-api.onrender.com/");
+    const data = await response.json();
+    setInventory(data);
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const test = () => {
+    fetchData();
+  };
 
   return (
     <div className={styles.mainCont}>
@@ -63,7 +66,11 @@ function Main() {
         {products}
       </div>
       {showEdit ? (
-        <EditProduct info={editInfo} setShowEdit={setShowEdit} />
+        <EditProduct
+          info={editInfo}
+          setShowEdit={setShowEdit}
+          updateMain={test}
+        />
       ) : null}
     </div>
   );

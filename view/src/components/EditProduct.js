@@ -17,7 +17,7 @@ function EditProduct(props) {
         }
       );
       if (response.ok) {
-        props.updateInventoryAfterEdit(props.info.id, newQuantity);
+        props.updateMain();
       } else {
         console.error("Failed to edit product");
       }
