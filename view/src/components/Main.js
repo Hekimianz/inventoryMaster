@@ -1,10 +1,13 @@
 import styles from "./css/Main.module.css";
 import { useState, useEffect } from "react";
 import Product from "./Product";
-
+import EditProduct from "./EditProduct";
 function Main() {
   const [inventory, setInventory] = useState([]);
   const [search, setSearch] = useState("");
+  const [showEdit, setShowEdit] = useState(false);
+  const [editInfo, setEditInfo] = useState({});
+
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch("https://inventorymaster-api.onrender.com/");
@@ -29,9 +32,12 @@ function Main() {
         name={product.productname}
         quant={product.quantityavailable}
         key={product.productid}
+        setShowEdit={setShowEdit}
+        setEditInfo={setEditInfo}
       />
     );
   });
+
   return (
     <div className={styles.mainCont}>
       <div className={styles.searchCont}>
@@ -56,6 +62,9 @@ function Main() {
         <Product isLegend={true} id="Id" name="Name" quant="Quantity" />
         {products}
       </div>
+      {showEdit ? (
+        <EditProduct info={editInfo} setShowEdit={setShowEdit} />
+      ) : null}
     </div>
   );
 }

@@ -5,6 +5,7 @@ const productsRoutes = require("./routes/Products");
 const cors = require("cors");
 
 app.use(cors());
+app.use(express.json());
 app.use("/", productsRoutes);
 
 app.listen(port, () => {
