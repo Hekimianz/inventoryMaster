@@ -33,3 +33,47 @@
   align-items: center;
   justify-content: center;
 }
+
+.colorsCont {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.colorLegend {
+  display: flex;
+  font-size: 10px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-left: 5px;
+}
+
+.colorBoxRed {
+  background-color: rgb(183, 39, 39);
+}
+
+.colorBoxYellow {
+  background-color: rgb(190, 131, 21);
+}
+
+.colorBoxRed,
+.colorBoxYellow {
+  text-align: center;
+  width: 10px;
+  height: 10px;
+}
+
+@media screen and (min-width: 800px) {
+  .colorLegend {
+    font-size: 1em;
+    margin-left: 10px;
+  }
+
+  .colorBoxRed,
+  .colorBoxYellow {
+    width: 15px;
+    height: 15px;
+  }
+}

@@ -1,10 +1,25 @@
-.productCont {
+.productCont,
+.productSoldOut,
+.productAlmostSoldOut {
   display: flex;
   width: 100%;
   max-width: 1200px;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px dashed black;
+}
+
+.productSoldOut {
+  color: rgb(183, 39, 39);
+}
+
+.productSoldOut .edit,
+.productAlmostSoldOut .edit {
+  color: black;
+}
+
+.productAlmostSoldOut {
+  color: rgb(190, 131, 21);
 }
 
 .productId,
@@ -15,16 +30,17 @@
 }
 
 .quantityCont {
-  display: flex;
+  display: grid;
+  grid-template-columns: 40px 20px;
   align-items: center;
-  justify-content: center;
-  gap: 5px;
+  justify-items: center;
 }
 
 .edit {
   border: 1px solid black;
   font-size: 1em;
   border-radius: 4px;
+  padding: 2px 2px;
   cursor: pointer;
 }
 
@@ -43,6 +59,15 @@
   display: flex;
   flex-direction: column;
   padding: 5px 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.editProductCont input {
+  text-align: center;
+  width: 50%;
 }
 
 .editProductCont button {
@@ -50,8 +75,14 @@
 }
 
 @media screen and (min-width: 800px) {
-  .productCont {
+  .productCont,
+  .productSoldOut,
+  .productAlmostSoldOut {
     height: 100px;
     font-size: 1.3em;
+  }
+
+  .quantityCont {
+    grid-template-columns: 40px 50px;
   }
 }

@@ -8,7 +8,15 @@ function Product(props) {
   }, [props.quant]);
 
   return (
-    <div className={styles.productCont}>
+    <div
+      className={
+        quantity === 0
+          ? styles.productSoldOut
+          : quantity <= 30
+          ? styles.productAlmostSoldOut
+          : styles.productCont
+      }
+    >
       <p className={styles.productId}>{props.id}</p>
       <p className={styles.productName}>{props.name}</p>
       <div className={styles.quantityCont}>

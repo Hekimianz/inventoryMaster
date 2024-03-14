@@ -60,6 +60,16 @@ function Main() {
         >
           Search
         </span>
+        <div className={styles.colorsCont}>
+          <div className={styles.colorLegend}>
+            <span className={styles.colorBoxRed}></span>
+            <span>- Sold Out</span>
+          </div>
+          <div className={styles.colorLegend}>
+            <span className={styles.colorBoxYellow}></span>
+            <span>- Few Left</span>
+          </div>
+        </div>
       </div>
       <div className={styles.productsCont}>
         <Product isLegend={true} id="Id" name="Name" quant="Quantity" />
