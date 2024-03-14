@@ -39,4 +39,17 @@ module.exports = {
       res.status(500).send("Error modifying quantity");
     }
   },
+  addProduct: async (req, res) => {
+    try {
+      const { name, quantity } = req.body;
+      const query = await pool.query(
+        "INSERT INTO products (productid, productname, quantityavailable) VALUES ((SELECT COALESCE(MAX(productid), 1000) + 1 FROM products), $1, $2);",
+        [name, quantity]
+      );
+      res.send("Added product");
+    } catch (err) {
+      console.error("Error adding new product: ", err);
+      res.status(500).send("Error adding product");
+    }
+  },
 };

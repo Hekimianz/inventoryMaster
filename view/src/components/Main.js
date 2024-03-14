@@ -2,11 +2,13 @@ import styles from "./css/Main.module.css";
 import { useState, useEffect } from "react";
 import Product from "./Product";
 import EditProduct from "./EditProduct";
+import AddProduct from "./AddProduct";
 function Main() {
   const [inventory, setInventory] = useState([]);
   const [search, setSearch] = useState("");
   const [showEdit, setShowEdit] = useState(false);
   const [editInfo, setEditInfo] = useState({});
+  const [showAdd, setShowAdd] = useState(false);
 
   const searchByName = async (name) => {
     const response = await fetch(
@@ -37,7 +39,7 @@ function Main() {
     fetchData();
   }, []);
 
-  const test = () => {
+  const updateMain = () => {
     fetchData();
   };
 
@@ -73,14 +75,28 @@ function Main() {
       </div>
       <div className={styles.productsCont}>
         <Product isLegend={true} id="Id" name="Name" quant="Quantity" />
+        <div
+          className={styles.addProductCont}
+          onClick={() => {
+            setShowAdd(true);
+          }}
+        >
+          <span className={"material-symbols-outlined " + styles.addBtn}>
+            add
+          </span>
+          <span className={styles.addProductText}>New Product</span>
+        </div>
         {products}
       </div>
       {showEdit ? (
         <EditProduct
           info={editInfo}
           setShowEdit={setShowEdit}
-          updateMain={test}
+          updateMain={updateMain}
         />
+      ) : null}
+      {showAdd ? (
+        <AddProduct setShowAdd={setShowAdd} updateMain={updateMain} />
       ) : null}
     </div>
   );

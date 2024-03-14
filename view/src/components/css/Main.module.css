@@ -65,6 +65,23 @@
   height: 10px;
 }
 
+.addProductCont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  border-bottom: 1px dashed black;
+  height: 50px;
+  cursor: pointer;
+}
+
+.addBtn {
+  color: green;
+  margin-right: 5px;
+  font-size: 2em;
+}
+
 @media screen and (min-width: 800px) {
   .colorLegend {
     font-size: 1em;
