@@ -21,6 +21,9 @@ function AddProduct({ setShowAdd, updateMain }) {
       );
       if (response.ok) {
         updateMain();
+        setShowAdd(false);
+        setName("");
+        setQuantity(0);
       } else {
         console.error("Failed to add product");
       }

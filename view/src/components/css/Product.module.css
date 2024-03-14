@@ -7,6 +7,7 @@
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px dashed black;
+  position: relative;
 }
 
 .productSoldOut {
@@ -72,6 +73,17 @@
 
 .editProductCont button {
   margin-top: 10px;
+}
+
+.deleteBtn {
+  border: 1px solid black;
+  font-size: 1em;
+  border-radius: 4px;
+  padding: 2px 2px;
+  cursor: pointer;
+  position: absolute;
+  margin-left: 5px;
+  color: black;
 }
 
 @media screen and (min-width: 800px) {

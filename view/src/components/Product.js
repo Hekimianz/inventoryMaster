@@ -7,6 +7,24 @@ function Product(props) {
     setQuantity(props.quant);
   }, [props.quant]);
 
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(
+        `https://inventorymaster-api.onrender.com/${props.id}`,
+        { method: "DELETE" }
+      );
+
+      if (response.ok) {
+        console.log("Product deleted successfully");
+        props.updateMain();
+      } else {
+        console.error("Failed to delete product");
+      }
+    } catch (error) {
+      console.error("Error deleting product:", error);
+    }
+  };
+
   return (
     <div
       className={
@@ -22,19 +40,29 @@ function Product(props) {
       <div className={styles.quantityCont}>
         <p className={styles.productQuantity}>{quantity}</p>
         {props.isLegend ? null : (
-          <span
-            onClick={() => {
-              props.setEditInfo({
-                name: props.name,
-                quantity: props.quant,
-                id: props.id,
-              });
-              props.setShowEdit(true);
-            }}
-            className={"material-symbols-outlined " + styles.edit}
-          >
-            edit
-          </span>
+          <div>
+            <span
+              onClick={() => {
+                props.setEditInfo({
+                  name: props.name,
+                  quantity: props.quant,
+                  id: props.id,
+                });
+                props.setShowEdit(true);
+              }}
+              className={"material-symbols-outlined " + styles.edit}
+            >
+              edit
+            </span>
+            <span
+              className={"material-symbols-outlined " + styles.deleteBtn}
+              onClick={() => {
+                handleDelete();
+              }}
+            >
+              delete
+            </span>
+          </div>
         )}
       </div>
     </div>

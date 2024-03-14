@@ -18,18 +18,6 @@ function Main() {
     setInventory(data);
   };
 
-  let products = inventory.map((product) => {
-    return (
-      <Product
-        id={product.productid}
-        name={product.productname}
-        quant={product.quantityavailable}
-        key={product.productid}
-        setShowEdit={setShowEdit}
-        setEditInfo={setEditInfo}
-      />
-    );
-  });
   const fetchData = async () => {
     const response = await fetch("https://inventorymaster-api.onrender.com/");
     const data = await response.json();
@@ -42,6 +30,20 @@ function Main() {
   const updateMain = () => {
     fetchData();
   };
+
+  let products = inventory.map((product) => {
+    return (
+      <Product
+        id={product.productid}
+        name={product.productname}
+        quant={product.quantityavailable}
+        key={product.productid}
+        setShowEdit={setShowEdit}
+        setEditInfo={setEditInfo}
+        updateMain={updateMain}
+      />
+    );
+  });
 
   return (
     <div className={styles.mainCont}>

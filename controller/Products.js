@@ -52,4 +52,17 @@ module.exports = {
       res.status(500).send("Error adding product");
     }
   },
+  deleteProduct: async (req, res) => {
+    try {
+      const { id } = req.params;
+      const query = await pool.query(
+        "DELETE FROM products WHERE productid = $1",
+        [id]
+      );
+      res.send("Product deleted");
+    } catch (err) {
+      console.error("Error deleting product: " + err);
+      res.status(500).send("Error deleting product");
+    }
+  },
 };
